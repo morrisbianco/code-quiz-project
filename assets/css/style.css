@@ -33,6 +33,10 @@ header {
     text-align: center;
 }
 
+.highscore {
+    text-align: center;
+}
+
 .buttons {
     display: grid;
     gap: 10px;
@@ -62,6 +66,12 @@ header {
 }
 
 .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputControl {
     display: flex;
     justify-content: center;
     align-items: center;
