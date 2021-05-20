@@ -1,12 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Code Quiz</title>
 </head>
+
 <body>
-    
+    <header>
+        <div>
+            <a href="./score.html" target="_blank">View Highscores</a>
+        </div>
+            <div class= "timer">
+                <div class = "timer-text"></div>
+            </div>
+    </header>
+    <main>
+        <div class="container">
+            <div id="question-container">
+                <div id="question" class="hidden q1">What HTML tag is used to link the Javascript code to the HTML
+                    document?
+                    <div id="anwser-button" class="buttons">
+                        <button class="button incorrect">1. Meta</button>
+                        <button class="button correct">2. Script</button>
+                        <button class="button incorrect">3. Link</button>
+                        <button class="button incorrect">4. Title</button>
+                    </div>
+                </div>
+                <div id="question" class="hidden q2">Test2
+                    <div id="anwser-button" class="buttons">
+                        <button class="button">1. Meta</button>
+                        <button class="button">2. Script</button>
+                        <button class="button">3. Link</button>
+                        <button class="button">4. Title</button>
+                    </div>
+                </div>
+                <div id="question" class="hidden">Test3
+                    <div id="anwser-button" class="buttons">
+                        <button class="button">1. Meta</button>
+                        <button class="button">2. Script</button>
+                        <button class="button">3. Link</button>
+                        <button class="button">4. Title</button>
+                    </div>
+                </div>
+                <div id="question" class="hidden">Test4
+                    <div id="anwser-button" class="buttons">
+                        <button class="button">1. Meta</button>
+                        <button class="button">2. Script</button>
+                        <button class="button">3. Link</button>
+                        <button class="button">4. Title</button>
+                    </div>
+                </div>
+                <div id="question" class="hidden">Test5
+                    <div id="anwser-button" class="buttons">
+                        <button class="button">1. Meta</button>
+                        <button class="button">2. Script</button>
+                        <button class="button">3. Link</button>
+                        <button class="button">4. Title</button>
+                    </div>
+                </div>
+                <div id="question" class="hidden">Test6
+                    <div id="anwser-button" class="buttons">
+                        <button class="button">1. Meta</button>
+                        <button class="button">2. Script</button>
+                        <button class="button">3. Link</button>
+                        <button class="button">4. Title</button>
+                    </div>
+                </div>
+            </div>
+            <div class="question-content">
+                <h1>Coding Quiz Challenge</h1>
+                <p>Try your best to anwser these six coding questions. You will have sixty seconds to anwser the questions. At the end of the quiz, your remaining time will be your new score. Let's see who gets the highest score!</p>
+            </div>
+            <div class="controls">
+                <button id="start" class="start-button button">Start</button>
+            </div>
+        </div>
+    </main>
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>
