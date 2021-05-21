@@ -29,7 +29,13 @@ header {
     align-items: center;
 }
 
-.question-content {
+.HStitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#question {
     text-align: center;
 }
 
@@ -79,4 +85,18 @@ header {
 
 .hidden {
     display: none;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.submit-button::placeholder {
+    color: white;
+}
+
+.inputLabel {
+    font-size: 16px;
+    font-weight: bold;
+    padding-right: 10px;
 }

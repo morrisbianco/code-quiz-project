@@ -15,20 +15,17 @@
             <a href="./score.html" target="_blank">View Highscores</a>
         </div>
             <div class= "timer">
-                <div class = "timer-text"></div>
+                <div class = "timer-text">Time: 60</div>
             </div>
     </header>
     <main>
         <div class="container">
             <div id="question-container">
-                <div id="question" class="hidden">What HTML tag is used to link the Javascript code to the HTML
-                    document?
+                <div id="question">
+
                 </div>
-                    <div id="answer-button" class="buttons hidden">
-                        <button class="button answer1">1. Meta</button>
-                        <button class="button answer2 correct">2. Script</button>
-                        <button class="button answer3">3. Link</button>
-                        <button class="button answer4">4. Title</button>
+                    <div id="answer-button" class="buttons">
+                        <button class="hide">Test</button>
                     </div>
             <div class="question-content">
                 <h1>Coding Quiz Challenge</h1>
@@ -38,11 +35,15 @@
                 <button id="start" class="start-button button">Start</button>
             </div>
             <div class="highscore hidden">
-                <h1>Highscore</h1>
-                <p>Your final score is</p>
+                <h1>Highscore:</h1>
+                <p id="scoreText"></p>
             </div>
             <form class="inputControl hidden">
-                <input id="input" class="submit-button button" placeholder="Type your Initials here"></input>
+                <label class="inputLabel">Initials Here:</label>
+                <input id="input" class="submit-button button" placeholder="Type your Initials here">
+            <button class="submitButton"></button> 
+        </input>
+
             </form>
         </div>
     </main>
