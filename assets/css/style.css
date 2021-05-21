@@ -100,3 +100,9 @@ header {
     font-weight: bold;
     padding-right: 10px;
 }
+
+.submitButton {
+    padding: 10px;
+    margin-left: 10px;
+    font-size: 15px;
+}

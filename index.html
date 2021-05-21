@@ -11,12 +11,9 @@
 
 <body>
     <header>
-        <div>
-            <a href="./score.html" target="_blank">View Highscores</a>
+        <div class="timer">
+            <div class="timer-text">Time: 60</div>
         </div>
-            <div class= "timer">
-                <div class = "timer-text">Time: 60</div>
-            </div>
     </header>
     <main>
         <div class="container">
@@ -24,28 +21,34 @@
                 <div id="question">
 
                 </div>
-                    <div id="answer-button" class="buttons">
-                        <button class="hide">Test</button>
-                    </div>
-            <div class="question-content">
-                <h1>Coding Quiz Challenge</h1>
-                <p>Try your best to anwser these six coding questions. You will have sixty seconds to anwser the questions. At the end of the quiz, your remaining time will be your new score. Let's see who gets the highest score!</p>
+                <div id="answer-button" class="buttons">
+                    <button class="hide">Test</button>
+                </div>
+                <div class="question-content">
+                    <h1>Coding Quiz Challenge</h1>
+                    <p>Try your best to anwser these six coding questions. You will have sixty seconds to anwser the
+                        questions. At the end of the quiz, your remaining time will be your new score. Let's see who
+                        gets the highest score!</p>
+                </div>
+                <div class="controls">
+                    <button id="start" class="start-button button">Start</button>
+                </div>
+                <div class="highscore hidden">
+                    <h1>Highscore:</h1>
+                    <p id="scoreText"></p>
+                </div>
+                <form class="inputControl hidden">
+                    <label class="inputLabel">Initials Here:</label>
+                    <input id="input" class="submit-button button" placeholder="Type your Initials here">
+                    <button class="submitButton">✓</button>
+                    </input>
+                </form>
+                <div class="card hidden">
+                    <h1>High Scores</h1>
+                    <ul id="score-list"></ul>
+                
+                </div>
             </div>
-            <div class="controls">
-                <button id="start" class="start-button button">Start</button>
-            </div>
-            <div class="highscore hidden">
-                <h1>Highscore:</h1>
-                <p id="scoreText"></p>
-            </div>
-            <form class="inputControl hidden">
-                <label class="inputLabel">Initials Here:</label>
-                <input id="input" class="submit-button button" placeholder="Type your Initials here">
-            <button class="submitButton"></button> 
-        </input>
-
-            </form>
-        </div>
     </main>
     <script src="assets/js/script.js"></script>
 </body>

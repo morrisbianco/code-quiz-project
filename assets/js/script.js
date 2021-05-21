@@ -1,14 +1,3 @@
-// GIVEN I am taking a code quiz DONE
-// WHEN I click the start button DONE
-// THEN a timer starts and I am presented with a question DONE
-// WHEN I answer a question DONE
-// THEN I am presented with another question DONE 
-// WHEN I answer a question incorrectly 
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0 DONE
-// THEN the game is over DONE
-// WHEN the game is over DONE
-// THEN I can save my initials and my score
 var startButtonEl = document.querySelector(".start-button");
 var questionContentEl = document.querySelector(".question-content");
 var questionEl = document.querySelector("#question");
@@ -20,6 +9,8 @@ var input = document.querySelector(".inputControl");
 var scoreText = document.querySelector("#scoreText");
 var scoreInput = document.querySelector("#input");
 var submitButton = document.querySelector(".submitButton");
+var scoreList = document.querySelector("#score-list");
+var card = document.querySelector(".card");
 
 var timeLeft;
 var timeInterval;
@@ -27,10 +18,8 @@ var stage;
 var score = 0;
 
 initials = [];
-
-function init() {
-getScores();
-}
+initialScore = [];
+timeScore = [];
 
 
 function startGame() {
@@ -50,7 +39,8 @@ var questions = [
             "Splice",
             "Space",
             "Spike",
-        ]
+        ],
+        correct: 1, 
     },
     {
         question: "What does DOM stand for?",
@@ -59,7 +49,8 @@ var questions = [
             "Document Oblique Model",
             "Document Object Mode",
             "Document Object Model",
-        ]
+        ],
+        correct: 3,
     },
     {
         question: "Event.stopPropagation does what?",
@@ -68,7 +59,8 @@ var questions = [
             "Stops the code from refreshing the page",
             "Prevents Bubbling",
             "Registers where the user clicked",
-        ]
+        ],
+        correct: 2,
     },
     {
         question: "What is the purpose of .trim()",
@@ -77,7 +69,8 @@ var questions = [
             "Deletes the last item in an array",
             "Removes the string value from numbers",
             "Removes the first item in an array",
-        ]
+        ],
+        correct: 0,
     },
     {
         question: "What does API stand for?",
@@ -86,7 +79,8 @@ var questions = [
             "Application Programming Interface",
             "Application Programming Intercom",
             "Application Progressing Interface",
-        ]
+        ],
+        correct: 1,
     },
     {
         question: "What HTML tag is used to link the Javascript code to the HTML document?",
@@ -95,7 +89,8 @@ var questions = [
             "Link",
             "Script",
             "Title",
-        ]
+        ],
+        correct: 2,
     },
 ]
 
@@ -125,6 +120,17 @@ function showQuestion() {
 buttons.addEventListener("click", function(event) {
     var element = event.target;
     if (element.matches("button")) {
+        var index = parseInt(element.dataset.index);
+        if (index !== questions[stage].correct) {
+            subtract();
+        } 
+    }
+
+});
+
+buttons.addEventListener("click", function(event) {
+    var element = event.target;
+    if (element.matches("button")) {
         if (stage === questions.length - 1) {
             highScore();
         } else if (stage < questions.length) {
@@ -135,26 +141,12 @@ buttons.addEventListener("click", function(event) {
     
 });
 
-function checkCorrect () {
-    
-}
-
-// buttons.addEventListener("click", function(event) {
-//     var element = event.target;
-//     if (element.matches("button")) {
-//         var index = parseInt(element.dataset.index);
-//         console.log(index, question.correct);
-//         if (element.matches("incorrect")) {
-
-//         }
-//     }
-// })
-
 function highScore() {
     questionEl.classList.add("hidden");
     buttons.classList.add("hidden");
     highscore.classList.remove("hidden");
     input.classList.remove("hidden");
+    card.classList.remove("hidden");
     clearInterval(timeInterval)
     score = timerEl.textContent
     setScores();
@@ -166,15 +158,15 @@ function subtract() {
         timeLeft -= 10;
         timerEl.textContent = timeLeft;
 
-        // if (timeLeft < 0) {
-        //     clearInterval(timeInterval);
-        //     timerEl.textContent = "Time: " + 0;
-        //     highScore();
-        // }
+        if (timeLeft < 0) {
+            clearInterval(timeInterval);
+            timerEl.textContent = 0;
+            highScore();
+        }
 
 }
 
-submitButton.addEventListener("submit", function(event) {
+submitButton.addEventListener("click", function(event) {
     event.preventDefault();
     var inputText = scoreInput.value.trim();
     if (inputText === "") {
@@ -183,14 +175,20 @@ submitButton.addEventListener("submit", function(event) {
     initials.push(inputText);
     scoreInput.value = "";
 
-    console.log(inputText);
-   
-    // TODO: What will happen when the following functions are called?
-    // The storeTodos stores the todos in the local storage
-    // the renderTodos writes them out on page
-    // storeTodos();
-    // renderTodos();
+    localStorage.setItem("initials", JSON.stringify(inputText));
+    
+   getScores();
+   renderScore();
+    
   });
+
+  function renderScore() {
+      var li = document.createElement("li");
+      li.textContent = "Highscore: " + JSON.parse(localStorage.getItem("initials")) + " - " + JSON.parse(localStorage.getItem("score"));
+  
+      scoreList.appendChild(li);
+    
+  }
 
 
 function timer() {
@@ -209,12 +207,16 @@ function timer() {
 
 
 function getScores() {
-
+console.log(JSON.parse(localStorage.getItem("score")));
+console.log(JSON.parse(localStorage.getItem("initials")));
 }
+
+
 
 function setScores() {
     timerEl.textContent = score;
     localStorage.setItem("score", JSON.stringify(score));
+    
 }
 
 startButtonEl.addEventListener("click", startGame);
