@@ -18,8 +18,6 @@ var stage;
 var score = 0;
 
 initials = [];
-initialScore = [];
-timeScore = [];
 
 
 function startGame() {

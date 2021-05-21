@@ -29,12 +29,6 @@ header {
     align-items: center;
 }
 
-.HStitle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 #question {
     text-align: center;
 }
