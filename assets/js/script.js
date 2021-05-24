@@ -143,13 +143,11 @@ function highScore() {
     questionEl.classList.add("hidden");
     buttons.classList.add("hidden");
     highscore.classList.remove("hidden");
-    input.classList.remove("hidden");
-    card.classList.remove("hidden");
+    input.classList.remove("hidden")
     clearInterval(timeInterval)
     score = timerEl.textContent
-    setScores();
     scoreText.textContent = ("Your final score is " + score + ".");
-
+    setScores();
 }
 
 function subtract() {
